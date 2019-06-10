@@ -1,0 +1,16 @@
+img#logo {
+    height: 40px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.header-title {
+    padding-left: 10px;
+}
+
+.header-subtitle {
+    padding-left: 10px;
+    font-size: 15px;
+}
