@@ -14,19 +14,17 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShowOnDirtyErrorStateMatcher, ErrorStateMatcher } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { NotImplimentedComponent } from './not-implimented/not-implimented.component';
+import { LicenseEligibilityCheckComponent } from './license-eligibility-check/license-eligibility-check.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  // { path: 'hero/:id',      component: HeroDetailComponent },
-  // {
-  //   path: 'r-light',
-  //   component: RLightComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-
+  { path: 'registration', component: NotImplimentedComponent },
+  { path: 'license-aligibility', component: LicenseEligibilityCheckComponent },
+  
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: NotImplimentedComponent }
 ];
 
 
@@ -34,7 +32,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    NotImplimentedComponent,
+    LicenseEligibilityCheckComponent
   ],
   imports: [
     BrowserModule,

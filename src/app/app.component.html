@@ -17,9 +17,17 @@
 
       <button mat-button color="accent" routerLink="/home" routerLinkActive="active">Home</button>
 
-      <button mat-button color="accent" (click)="doLogin()">Login</button>
+      <button mat-button color="accent" routerLink="/registration" routerLinkActive="active">Vehicle Registration</button>
+
+      <button mat-button color="accent" routerLink="/license-aligibility" routerLinkActive="active">Driver License</button>
+
+      <button mat-button *ngIf="! loginService.currentUser" color="accent" (click)="doLogin()">Login</button>
+
+      <button mat-button *ngIf="loginService.currentUser" color="accent" (click)="doLogout()">Logout</button>
 
     </div>
+
+    <span *ngIf="loginService.currentUser" class="userName">{{loginService.currentUser.userName.firstName}}</span>
 
     <button mat-icon-button fxHide fxShow.lt-md [matMenuTriggerFor]="menu" 
               aria-label="Example icon-button with a menu">
@@ -31,13 +39,22 @@
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button mat-menu-item disabled>
-        <mat-icon>voicemail</mat-icon>
-        <span>Check voice mail</span>
+      <button mat-menu-item routerLink="/license-aligibility" routerLinkActive="active">
+        <mat-icon></mat-icon>
+        <span>Driver License</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item routerLink="/registration" routerLinkActive="active">
         <mat-icon>notifications_off</mat-icon>
-        <span>Disable alerts</span>
+        <span>Registrations</span>
+      </button>
+      <!-- <button mat-menu-item *ngIf="!currentUser" (click)="doLogin()" routerLinkActive="active"> -->
+      <button mat-menu-item *ngIf="! loginService.currentUser" (click)="doLogin()" routerLinkActive="active">
+        <mat-icon></mat-icon>
+        <span>Login</span>
+      </button>
+      <button mat-menu-item *ngIf="loginService.currentUser" (click)="doLogout()" routerLinkActive="active">
+        <mat-icon></mat-icon>
+        <span>Logout</span>
       </button>
     </mat-menu>
 

@@ -23,3 +23,7 @@ img#logo {
     text-decoration: underline;
     font-style: italic;
 }
+
+.userName {
+    font-size: 12px;
+}

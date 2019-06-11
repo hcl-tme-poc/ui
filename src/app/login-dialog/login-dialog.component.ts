@@ -12,6 +12,8 @@ export class LoginDialogComponent implements OnInit {
 
   loginForm: FormGroup;
 
+  loginErrorMessage: string = '';
+
   constructor(public dialogRef: MatDialogRef<LoginDialogComponent>, 
           private fb: FormBuilder, private loginService: LoginService) { }
 
@@ -26,10 +28,12 @@ export class LoginDialogComponent implements OnInit {
     this.loginService.login(this.loginForm.value)
       .subscribe(
         (val) => {
+          this.loginErrorMessage = '';
           console.log('token', val);
           this.dialogRef.close(val);
         },
         (err) => {
+          this.loginErrorMessage = err;
           console.log('error', err);
         }
       );
