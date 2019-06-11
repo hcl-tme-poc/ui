@@ -14,3 +14,8 @@ img#logo {
     padding-left: 10px;
     font-size: 15px;
 }
+
+.active {
+    text-decoration: underline;
+    font-style: italic;
+}

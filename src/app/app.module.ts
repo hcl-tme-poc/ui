@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
-  // { path: 'welcome', component: WelcomeComponent },
+  { path: 'home', component: HomeComponent },
   // { path: 'hero/:id',      component: HeroDetailComponent },
   // {
   //   path: 'r-light',
@@ -19,13 +21,15 @@ const appRoutes: Routes = [
   //   data: { title: 'Heroes List' }
   // },
 
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent }
 ];
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
