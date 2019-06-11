@@ -8,9 +8,20 @@ import { LoginService } from '../shared/login.service';
 })
 export class LicenseEligibilityCheckComponent implements OnInit {
 
+  preEligible: boolean = false;  // true if first 4 values make user eligible
+
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
+  }
+
+
+
+  get showGuestPrecheck(): boolean {
+
+    return !this.loginService.currentUser;
+
   }
 
 }

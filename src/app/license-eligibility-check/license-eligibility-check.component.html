@@ -1,5 +1,15 @@
-<p>
-  license-eligibility-check works!
 
+<mat-card>
+
+    <mat-card-title><h4>License Renewal Eligibility Check</h4></mat-card-title>
+
+    <mat-card-content>
+
+      <app-guest-precheck *ngIf="showGuestPrecheck"></app-guest-precheck>
+
+
+    </mat-card-content>
   <span *ngIf="loginService.currentUser" class="userName">{{loginService.currentUser.userName.firstName}}</span>
-</p>
+
+
+</mat-card>

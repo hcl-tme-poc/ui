@@ -16,6 +16,7 @@ import { ShowOnDirtyErrorStateMatcher, ErrorStateMatcher } from '@angular/materi
 import { HttpClientModule } from '@angular/common/http';
 import { NotImplimentedComponent } from './not-implimented/not-implimented.component';
 import { LicenseEligibilityCheckComponent } from './license-eligibility-check/license-eligibility-check.component';
+import { GuestPrecheckComponent } from './license-eligibility-check/guest-precheck/guest-precheck.component';
 
 
 const appRoutes: Routes = [
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginDialogComponent,
     NotImplimentedComponent,
-    LicenseEligibilityCheckComponent
+    LicenseEligibilityCheckComponent,
+    GuestPrecheckComponent
   ],
   imports: [
     BrowserModule,
