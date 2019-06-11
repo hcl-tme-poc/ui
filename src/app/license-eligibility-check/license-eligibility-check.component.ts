@@ -11,7 +11,7 @@ export class LicenseEligibilityCheckComponent implements OnInit {
   preEligible: boolean = false;  // true if first 4 values make user eligible
 
 
-  constructor(private loginService: LoginService) { }
+  constructor(public loginService: LoginService) { }
 
   ngOnInit() {
   }

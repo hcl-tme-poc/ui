@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   
   // title = 'dmr-poc';
 
-  constructor(public dialog: MatDialog, private loginService: LoginService) {}
+  constructor(public dialog: MatDialog, public loginService: LoginService) {}
 
   ngOnInit(): void {
 

@@ -46,7 +46,7 @@ const appRoutes: Routes = [
     SharedModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: false }),
+    RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: true }),
   ],
   entryComponents: [
     LoginDialogComponent,
