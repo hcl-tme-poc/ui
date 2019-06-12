@@ -12,13 +12,25 @@ export class LoginService {
 
   allUsers: UserModel[] = [
     {
-      userName: {firstName: 'John', lastName: 'Smith'},
-      token: 'aaaaaaaaaaaaaaaaaaaaaaaa'
+      firstName: 'Alex', 
+      lastName: 'Dough',
+      email: 'alex@gmail.com',
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFsZXggRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ._GMk5xvOliwC0qOUsqCXcQlVhBrhgLEM0S3rsMRUQQI',
+      driverLicenseNumber: 'A1234-12345-12345',
+      trilliumNumber: '1234567',
+      postalCode: 'M1E1W7',
+      dob: '1984-05-04'
     },
     {
-      userName: {firstName: 'Bob', lastName: 'Jones'},
-      token: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
-    }
+      firstName: 'John', 
+      lastName: 'Smith',
+      email: 'john@hotmail.com',
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gU21pdGgiLCJpYXQiOjE1MTYyMzkwMjJ9.Q_w2AVguPRU2KskCXwR7ZHl09TQXEntfEA8Jj2_Jyew',
+      driverLicenseNumber: 'A7869-78965-78965',
+      trilliumNumber: '68992390',
+      postalCode: 'M1E1W9',
+      dob: '1979-05-04'
+    },
   ]
 
   currentUser: UserModel | undefined;
@@ -51,7 +63,7 @@ export class LoginService {
   logoff() {
 
     this.currentUser = undefined;
-      this._currentUser$.next({});
+    this._currentUser$.next({});
     
   }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../shared/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
-import { UserModel } from '../shared/models/user.model';
+import { UserModel, UserEligibilityState } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-license-eligibility-check',
@@ -13,6 +13,8 @@ export class LicenseEligibilityCheckComponent implements OnInit {
 
   preEligible: boolean = false;  // true if first 4 values make user eligible
 
+  componentState: UserEligibilityState | {pricheck: boolean};
+
   currentUser: UserModel | {} = {};
 
 
@@ -22,8 +24,13 @@ export class LicenseEligibilityCheckComponent implements OnInit {
   ngOnInit() {
 
     this.route.paramMap.pipe(
-      tap(val => console.log(' ********** current user', val))
-    ).subscribe();
+      tap(val => {
+        // console.log(' ********** route.paramMap',  val['params'].pricheck);
+      })
+    ).subscribe((params) => {
+      this.componentState = params['params'];
+      this.componentState = {...this.componentState, pricheck: this.componentState.pricheck === 'true'}
+    });
 
     this.loginService.currentUser$.subscribe(user => {
 
@@ -37,21 +44,10 @@ export class LicenseEligibilityCheckComponent implements OnInit {
 
   ngAfterViewInit() {
 
-    // this.loginService.currentUser$.subscribe(user => {
-
-    //   console.log(' *********** current user', user);
-
-    //   this.currentUser = user;
-
-    // });
-
   }
 
 
   ngOnChanges(changeRecord) {
-
-    console.log(' ************** something changed', changeRecord);
-
 
   }
 
@@ -68,11 +64,11 @@ export class LicenseEligibilityCheckComponent implements OnInit {
 
   get showGuestPrecheck(): boolean {
 
-    // return !this.loginService.currentUser;
+    // return ! this.currentUser.hasOwnProperty('token');
 
-    // console.log(' *** in showGuestPrecheck. return ', this.currentUser == {}, '  this.currentUser', this.currentUser);
+    console.log('this.componentState.pricheck', !this.componentState['pricheck']);
 
-    return ! this.currentUser.hasOwnProperty('token');
+    return !this.componentState.pricheck;
 
   }
 

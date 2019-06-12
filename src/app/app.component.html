@@ -29,7 +29,7 @@
 
     </div>
 
-    <span *ngIf="loginService.currentUser" class="userName">{{loginService.currentUser.userName.firstName}}</span>
+    <span *ngIf="loginService.currentUser" class="userName">{{loginService.currentUser.firstName}}</span>
 
     <button mat-icon-button fxHide fxShow.lt-md [matMenuTriggerFor]="menu" 
               aria-label="Example icon-button with a menu">

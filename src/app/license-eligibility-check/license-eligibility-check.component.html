@@ -11,10 +11,12 @@
 
 
     </mat-card-content>
-  <span *ngIf="loginService.currentUser" class="userName">{{loginService.currentUser.userName.firstName}}</span>
+  <span *ngIf="loginService.currentUser" class="userName">{{loginService.currentUser.firstName}}</span>
 
 
 </mat-card>
 
 
-{{ currentUser | json}}
+<!-- currentUser {{ currentUser | json}}
+<br />
+state: {{ componentState | json }} -->

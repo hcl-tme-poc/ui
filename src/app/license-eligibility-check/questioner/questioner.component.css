@@ -4,7 +4,7 @@
 
 .question-description {
     padding-left: 20px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 label.question-label {
@@ -13,4 +13,5 @@ label.question-label {
 
 mat-radio-group {
     padding-top: 20px;
+    width: 100%;
 }

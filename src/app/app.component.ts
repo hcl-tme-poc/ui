@@ -35,8 +35,6 @@ export class AppComponent implements OnInit {
 
     this.dialog.open(LoginDialogComponent).afterClosed().subscribe(response => {
 
-      console.log('dialog closed', response);
-
       if(response) {
         localStorage.setItem('userToken', JSON.stringify(response));
         // this.loginService.currentUser = response;
@@ -60,8 +58,14 @@ export class AppComponent implements OnInit {
 
   goToDl() {
 
-    this.router.navigate(['/license-aligibility', this.loginService.currentUser ? this.loginService.currentUser : {} ]);
+    let checkEligibilityParams = {};
 
+    if(this.loginService.currentUser) {
+      checkEligibilityParams = {...this.loginService.currentUser, pricheck: false};
+      delete checkEligibilityParams['token'];
+    }
+
+    this.router.navigate(['/license-aligibility', checkEligibilityParams ]);
   }
 
 }
