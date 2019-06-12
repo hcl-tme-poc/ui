@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
-import { UsernModel } from './shared/models/user.model';
+import { UserModel } from './shared/models/user.model';
 import { noUndefined } from '@angular/compiler/src/util';
 import { LoginService } from './shared/login.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +15,17 @@ export class AppComponent implements OnInit {
   
   // title = 'dmr-poc';
 
-  constructor(public dialog: MatDialog, public loginService: LoginService) {}
+  constructor(public dialog: MatDialog, public loginService: LoginService, 
+        private route: ActivatedRoute, private router: Router,) {}
 
   ngOnInit(): void {
 
     if(localStorage.getItem('userToken')) {
-      this.loginService.currentUser = JSON.parse(localStorage.getItem('userToken'));
+      // this.loginService.currentUser = JSON.parse(localStorage.getItem('userToken'));
+      this.loginService.setCurrentUser(JSON.parse(localStorage.getItem('userToken')));
     }else {
-      this.loginService.currentUser =  undefined;
+      // this.loginService.currentUser =  undefined;
+      this.loginService.setCurrentUser(undefined);
     }
     
   }
@@ -35,7 +39,8 @@ export class AppComponent implements OnInit {
 
       if(response) {
         localStorage.setItem('userToken', JSON.stringify(response));
-        this.loginService.currentUser = response;
+        // this.loginService.currentUser = response;
+        this.loginService.setCurrentUser(response);
       } else {
         localStorage.removeItem('userToken');
       }
@@ -49,7 +54,13 @@ export class AppComponent implements OnInit {
 
     localStorage.removeItem('userToken');
 
-    this.loginService.currentUser = undefined;
+    this.loginService.logoff();
+
+  }
+
+  goToDl() {
+
+    this.router.navigate(['/license-aligibility', this.loginService.currentUser ? this.loginService.currentUser : {} ]);
 
   }
 

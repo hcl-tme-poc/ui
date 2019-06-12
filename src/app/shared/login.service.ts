@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginModel } from './models/login.model';
-import { of, Observable, throwError } from 'rxjs';
+import { of, Observable, throwError, Subject, BehaviorSubject } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { UsernModel } from './models/user.model';
+import { UserModel } from './models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  allUsers: UsernModel[] = [
+  allUsers: UserModel[] = [
     {
       userName: {firstName: 'John', lastName: 'Smith'},
       token: 'aaaaaaaaaaaaaaaaaaaaaaaa'
@@ -21,7 +21,8 @@ export class LoginService {
     }
   ]
 
-  currentUser: UsernModel | undefined;
+  currentUser: UserModel | undefined;
+  _currentUser$: BehaviorSubject<UserModel | {}> = new BehaviorSubject({});
 
   constructor(private http: HttpClient) { }
 
@@ -32,6 +33,7 @@ export class LoginService {
       const user = loginInfo.loginId === 'aaa' ? this.allUsers[0] : this.allUsers[1];
 
       this.currentUser = user;
+      this._currentUser$.next(user);
 
       return of(user).pipe(
         delay(1000)
@@ -39,6 +41,7 @@ export class LoginService {
     }else {
 
       this.currentUser = undefined;
+      this._currentUser$.next({});
 
       return throwError('Login id or password invalid');
     }
@@ -46,6 +49,20 @@ export class LoginService {
   }
 
   logoff() {
+
+    this.currentUser = undefined;
+      this._currentUser$.next({});
     
+  }
+
+  setCurrentUser(currentUser: UserModel | undefined) {
+
+    this.currentUser = currentUser;
+    this._currentUser$.next(currentUser ? currentUser : {});
+
+  }
+
+  get currentUser$() {
+    return this._currentUser$.asObservable();
   }
 }

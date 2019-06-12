@@ -1,0 +1,16 @@
+.question-option {
+    font-size: 14px;
+}
+
+.question-description {
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+label.question-label {
+    font-weight: bold;
+}
+
+mat-radio-group {
+    padding-top: 20px;
+}

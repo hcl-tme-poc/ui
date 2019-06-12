@@ -5,7 +5,9 @@
 
     <mat-card-content>
 
-      <app-guest-precheck *ngIf="showGuestPrecheck"></app-guest-precheck>
+      <app-guest-precheck *ngIf="showGuestPrecheck" (doPreCheck)="doPreCheck($event)"></app-guest-precheck>
+
+      <app-questioner></app-questioner>
 
 
     </mat-card-content>
@@ -13,3 +15,6 @@
 
 
 </mat-card>
+
+
+{{ currentUser | json}}

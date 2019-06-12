@@ -2,7 +2,7 @@
 
   <mat-toolbar role="heading" color="primary" fxLayout="row">
 
-    <img id="logo" src="assets/OMT-Logo.jpg" fxShow fxHide.lt-md="true" alt="Ontario Ministry of Transportation">
+    <img id="logo" src="assets/OMT-Logo.png" fxShow fxHide.lt-md="true" alt="Ontario Ministry of Transportation">
 
     <div class="header-title" fxShow fxHide.lt-md>Ontario Ministry of Transportation</div>
 
@@ -19,7 +19,9 @@
 
       <button mat-button color="accent" routerLink="/registration" routerLinkActive="active">Vehicle Registration</button>
 
-      <button mat-button color="accent" routerLink="/license-aligibility" routerLinkActive="active">Driver License</button>
+      <!-- <button mat-button color="accent" routerLink="/license-aligibility" routerLinkActive="active">Driver License</button> -->
+      <button mat-button color="accent" routerLink="['/license-aligibility', loginService.currentUser]" routerLinkActive="active">Driver License</button>
+      <button mat-button color="accent" (click)="goToDl()"  routerLinkActive="active">Driver License 2</button>
 
       <button mat-button *ngIf="! loginService.currentUser" color="accent" (click)="doLogin()">Login</button>
 

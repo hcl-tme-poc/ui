@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,9 @@ export class GuestPrecheckComponent implements OnInit {
 
   guestForm: FormGroup;
 
+  @Output()
+  doPreCheck = new EventEmitter();
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -19,7 +22,9 @@ export class GuestPrecheckComponent implements OnInit {
 
   submitForm() {
 
-    console.log(' *** form submitted');
+    console.log(' *** form submitted', this.guestForm.value);
+
+    this.doPreCheck.emit(this.guestForm.value);
 
   }
 
