@@ -5,7 +5,12 @@
 
     <mat-card-content>
 
-      <app-guest-precheck *ngIf="showGuestPrecheck" (doPreCheck)="doPreCheck($event)"></app-guest-precheck>
+      <app-guest-precheck *ngIf="showGuestPrecheck" 
+          [driverLicenseNumber]="currentUser.driverLicenseNumber || componentState?.driverLicenseNumber"
+          [trilliumNumber]="currentUser.trilliumNumber || componentState?.trilliumNumber"
+          [postCode]="currentUser.postalCode || componentState?.postalCode"
+          [dateOfBirth]="currentUser.dob || componentState?.dob"
+          (doPreCheck)="doPreCheck($event)"></app-guest-precheck>
 
       <app-questioner></app-questioner>
 
@@ -17,6 +22,8 @@
 </mat-card>
 
 
-<!-- currentUser {{ currentUser | json}}
+<!-- <div style="max-width: 600px;">currentUser {{ currentUser | json}}</div>
 <br />
-state: {{ componentState | json }} -->
+<br />
+<br />
+<div style="max-width: 600px;">state: {{ componentState | json }}</div> -->
