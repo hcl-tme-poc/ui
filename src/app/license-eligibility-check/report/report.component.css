@@ -7,6 +7,14 @@
     padding-top: 6px;
 }
 
+.text-data {
+    font-size: 16px;
+}
+
 mat-card {
     max-width: 600px;
+}
+
+h4 {
+    font-size: 18px;
 }

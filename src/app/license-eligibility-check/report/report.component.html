@@ -37,10 +37,15 @@
       <h4>{{elifibilityMessage.message}}</h4>
       <mat-list>
 
-        <mat-list-item *ngFor="let reason of elifibilityMessage.reasons">
+        <!-- <mat-list-item *ngFor="let reason of elifibilityMessage.reasons">
           <mat-icon mat-list-icon>check</mat-icon>
           <h4 mat-line>{{reason.reasonDescription}}</h4>
-        </mat-list-item>
+        </mat-list-item> -->
+
+        <div *ngFor="let reason of elifibilityMessage.reasons" fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon mat-list-icon>check</mat-icon>
+          <h5 mat-line>{{reason.reasonDescription}}</h5>
+        </div>
 
       </mat-list>
     </ng-container>

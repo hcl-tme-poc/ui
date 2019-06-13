@@ -13,6 +13,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -30,6 +32,8 @@ import { MatListModule } from '@angular/material/list';
     MatNativeDateModule,
     MatRadioModule,
     MatListModule,
+    MatDividerModule,
+    MatChipsModule,
   ],
   exports: [
     MatToolbarModule,
@@ -44,6 +48,8 @@ import { MatListModule } from '@angular/material/list';
     MatNativeDateModule,
     MatRadioModule,
     MatListModule,
+    MatDividerModule,
+    MatChipsModule,
   ],
 })
 export class SharedModule { }
