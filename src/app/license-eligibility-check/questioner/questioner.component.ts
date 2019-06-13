@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,9 @@ export class QuestionerComponent implements OnInit {
 
   questionerForm: FormGroup;
 
+  @Output()
+  questionsSubmitted = new EventEmitter();
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -19,6 +22,8 @@ export class QuestionerComponent implements OnInit {
   }
 
   submitForm() {
+
+    this.questionsSubmitted.emit(this.questionerForm.value);
 
   }
 

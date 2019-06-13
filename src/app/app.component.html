@@ -20,7 +20,7 @@
       <button mat-button color="accent" routerLink="/registration" routerLinkActive="active">Vehicle Registration</button>
 
       <!-- <button mat-button color="accent" routerLink="/license-aligibility" routerLinkActive="active">Driver License</button> -->
-      <button mat-button color="accent" routerLink="['/license-aligibility', loginService.currentUser]" routerLinkActive="active">Driver License</button>
+      <button mat-button color="accent" routerLink="['/license-eligibility', loginService.currentUser]" routerLinkActive="active">Driver License</button>
       <button mat-button color="accent" (click)="goToDl()"  routerLinkActive="active">Driver License 2</button>
 
       <button mat-button *ngIf="! loginService.currentUser" color="accent" (click)="doLogin()">Login</button>
@@ -41,7 +41,7 @@
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button mat-menu-item routerLink="/license-aligibility" routerLinkActive="active">
+      <button mat-menu-item routerLink="/license-eligibility" routerLinkActive="active">
         <mat-icon></mat-icon>
         <span>Driver License</span>
       </button>

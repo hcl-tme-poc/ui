@@ -18,12 +18,14 @@ import { NotImplimentedComponent } from './not-implimented/not-implimented.compo
 import { LicenseEligibilityCheckComponent } from './license-eligibility-check/license-eligibility-check.component';
 import { GuestPrecheckComponent } from './license-eligibility-check/guest-precheck/guest-precheck.component';
 import { QuestionerComponent } from './license-eligibility-check/questioner/questioner.component';
+import { ReportComponent } from './license-eligibility-check/report/report.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'registration', component: NotImplimentedComponent },
-  { path: 'license-aligibility', component: LicenseEligibilityCheckComponent },
+  { path: 'license-eligibility', component: LicenseEligibilityCheckComponent },
+  { path: 'license-eligibility-report', component: ReportComponent },
   
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotImplimentedComponent }
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     NotImplimentedComponent,
     LicenseEligibilityCheckComponent,
     GuestPrecheckComponent,
-    QuestionerComponent
+    QuestionerComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

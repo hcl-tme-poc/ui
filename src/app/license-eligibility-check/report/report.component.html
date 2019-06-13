@@ -1,0 +1,50 @@
+<mat-card>
+
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title><h4>License Renewal Eligibility Report</h4></mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <div class="header-row" fxLayout="row">
+      <div class="text-header">Driver License Number</div>
+      <div class="text-data">{{dl}}</div>
+    </div>
+
+    <div class="header-row" fxLayout="row">
+      <div class="text-header">Trillium Number</div>
+      <div class="text-data">{{trilliumNumber}}</div>
+    </div>
+
+    <div class="header-row" fxLayout="row">
+      <div class="text-header">Postal Code</div>
+      <div class="text-data">{{postalCode}}</div>
+    </div>
+
+    <div class="header-row" fxLayout="row">
+      <div class="text-header">Date of Birth</div>
+      <div class="text-data">{{dob | date}}</div>
+    </div>
+
+    <div class="header-row" fxLayout="row">
+      <div class="text-header">Date of Report</div>
+      <div class="text-data">{{ now | date}}</div>
+    </div>
+
+
+    <ng-container id="elifibilityMessage" *ngIf="elifibilityMessage">
+      <h4>{{elifibilityMessage.message}}</h4>
+      <mat-list>
+
+        <mat-list-item *ngFor="let reason of elifibilityMessage.reasons">
+          <mat-icon mat-list-icon>check</mat-icon>
+          <h4 mat-line>{{reason.reasonDescription}}</h4>
+        </mat-list-item>
+
+      </mat-list>
+    </ng-container>
+
+  </mat-card-content>
+
+</mat-card>

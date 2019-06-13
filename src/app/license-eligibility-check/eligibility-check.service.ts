@@ -1,28 +1,53 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+
+import { environment } from '../../environments/environment';
+import { ElegibilityCheckResponse } from '../shared/models/elegibility-check-response.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EligibilityCheckService {
 
+  eligibilityData: ElegibilityCheckResponse;
+
   constructor(private http: HttpClient) { }
 
 
   preCheckDriver(driverLicenseNumber: string, trilliumNumber: string, postalCode: string, dob: string) {
 
-    // return this.http.get(filename, {responseType: 'text'})
-
-    const URL = 'http://dmr-poc.eastus.cloudapp.azure.com:12001/ELIGIBILITY-CHECK/V1.0/GUEST-DRIVER/ELIGIBILITY-CHECK';
+    const URL = environment.SERVER_URL+'GUEST-DRIVER/ELIGIBILITY-CHECK';
 
     const options = { params: new HttpParams().append('driverLicenseNumber', driverLicenseNumber)
             .append('trilliumNumber', trilliumNumber).append('postalCode', postalCode)
-            .append('dob', dob) };
+            .append('dob', '04/05/1984') };
 
     return this.http.post(URL, {}, options)
       .pipe(
+        catchError((err) => this.handleError(err))
+      );
+
+  }
+
+  checkEligibilityQuestioner(driverLicenseNumber: string, driverEmail: string, musclePain: string,
+          drivingHabitsStatus: string, cardiacStatus: string, breathStatus: string, 
+          eyeVisionStatus: string, accidentStatus: string) {
+    
+    const URL = environment.SERVER_URL+'GUEST-DRIVER/ELIGIBILITY-QUESTION-CHECK';
+
+    const options = { params: new HttpParams().append('driverLicenseNumber', driverLicenseNumber)
+            .append('driverEmail', driverEmail).append('musclePain', musclePain)
+            .append('drivingHabitsStatus', drivingHabitsStatus)
+            .append('cardiacStatus', cardiacStatus).append('breathStatus', breathStatus)
+            .append('eyeVisionStatus', eyeVisionStatus).append('accidentStatus', accidentStatus) };
+
+    return this.http.post(URL, {}, options)
+      .pipe(
+        tap((data) => {
+          this.eligibilityData = data as ElegibilityCheckResponse;
+        }),
         catchError((err) => this.handleError(err))
       );
 

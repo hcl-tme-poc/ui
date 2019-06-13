@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  SERVER_URL: 'http://dmr-poc.eastus.cloudapp.azure.com:12001/ELIGIBILITY-CHECK/V1.0/'
 };
 
 /*

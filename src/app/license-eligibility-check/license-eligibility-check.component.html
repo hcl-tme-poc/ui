@@ -10,9 +10,25 @@
           [trilliumNumber]="currentUser.trilliumNumber || componentState?.trilliumNumber"
           [postCode]="currentUser.postalCode || componentState?.postalCode"
           [dateOfBirth]="currentUser.dob || componentState?.dob"
-          (doPreCheck)="doPreCheck($event)"></app-guest-precheck>
+          (doPreCheck)="doPreCheck($event)"
+          (valueChanged)="driverFormChanged($event)"></app-guest-precheck>
 
-      <app-questioner></app-questioner>
+
+      <ng-container id="precheckMessage" *ngIf="precheckMessage">
+        <h4>{{precheckMessage.message}}</h4>
+        <mat-list>
+
+          <!-- <h3 mat-subheader>{{precheckMessage.message}}</h3> -->
+
+          <mat-list-item *ngFor="let reason of precheckMessage.reasons">
+            <mat-icon mat-list-icon>check</mat-icon>
+            <h4 mat-line>{{reason.reasonDescription}}</h4>
+          </mat-list-item>
+
+        </mat-list>
+      </ng-container>
+
+      <app-questioner *ngIf="preEligible" (questionsSubmitted)="questionsSubmitted($event)"></app-questioner>
 
 
     </mat-card-content>

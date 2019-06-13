@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { UserModel, UserEligibilityState } from '../shared/models/user.model';
 import { EligibilityCheckService } from './eligibility-check.service';
+import { ElegibilityCheckResponse } from '../shared/models/elegibility-check-response.model';
 
 @Component({
   selector: 'app-license-eligibility-check',
@@ -17,6 +18,8 @@ export class LicenseEligibilityCheckComponent implements OnInit {
   componentState: UserEligibilityState | {pricheck: boolean};
 
   currentUser: UserModel | {} = {};
+
+  precheckMessage: ElegibilityCheckResponse | undefined;
 
 
   constructor(public loginService: LoginService, private eligibilityCheckService: EligibilityCheckService,
@@ -58,24 +61,69 @@ export class LicenseEligibilityCheckComponent implements OnInit {
 
     console.log('in doPreCheck', event);
 
-    // console.log('this.route.snapshot', this.route.snapshot.routeConfig.path);
+    this.preEligible = false;
+    this.precheckMessage = undefined;
 
-    // this.router.navigate([this.route.snapshot.routeConfig.path, event]);
+    this.eligibilityCheckService.preCheckDriver(event.dlNumber, event.triulliumNumber,
+            event.postalCode, event.dob).subscribe((res) => {
 
-    this.eligibilityCheckService.preCheckDriver(event.driverLicenseNumber, event.trilliumNumber,
-            event.postalCode, event.dob).subscribe()
+      this.precheckMessage = res as ElegibilityCheckResponse;
 
+      this.preEligible = this.precheckMessage.message === 'Eligible for License Renewal';
+
+      this.componentState['driverLicenseNumber'] = event.dlNumber;
+      this.componentState['trilliumNumber'] = event.triulliumNumber;
+      this.componentState['postalCode'] = event.postalCode;
+      this.componentState['dob'] = event.dob;
+
+    });
+
+  }
+
+  questionsSubmitted(event) {
+
+    console.log('questioner submitted', event);
+
+    this.eligibilityCheckService.checkEligibilityQuestioner(this.componentState['driverLicenseNumber'],
+          'temp@mail.com', this.toTrueFalse(event.musclePain), this.toTrueFalse(event.poorDriving), 
+          this.toTrueFalse(event.cardiacProblem),
+          this.toTrueFalse(event.respiratoryProblem), this.toTrueFalse(event.eye), 
+          this.toTrueFalse(event.hospitalized) )
+    .subscribe((val) => {
+      console.log(' ********* eligibility:', val);
+
+      this.router.navigate(['/license-eligibility-report', {
+        dl: this.componentState['driverLicenseNumber'],
+        trilliumNumber: this.componentState['trilliumNumber'],
+        postalCode: this.componentState['postalCode'],
+        dob: this.componentState['dob']
+      }]);
+    });
+
+  }
+
+  private toTrueFalse(val: string): string {
+    return val === 'Yes' ? 'true' : 'false';
+  }
+
+  driverFormChanged(event) {
+
+    this.preEligible = false;
+
+    this.precheckMessage = undefined;
 
   }
 
   get showGuestPrecheck(): boolean {
 
-    // return ! this.currentUser.hasOwnProperty('token');
-
-    // console.log('this.componentState.pricheck', !this.componentState['pricheck']);
-
     return !this.componentState.pricheck;
 
   }
+
+  // get showGuestQuestioner(): boolean {
+
+  //   return !this.componentState.pricheck;
+
+  // }
 
 }

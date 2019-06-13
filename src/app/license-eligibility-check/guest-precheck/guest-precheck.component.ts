@@ -25,6 +25,9 @@ export class GuestPrecheckComponent implements OnInit {
   @Output()
   doPreCheck = new EventEmitter();
 
+  @Output()
+  valueChanged = new EventEmitter();
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -46,6 +49,11 @@ export class GuestPrecheckComponent implements OnInit {
     if(this.dateOfBirth) {
       this.guestForm.get('dob').setValue(this.dateOfBirth);
     }
+
+
+    this.guestForm.valueChanges.subscribe(val => {
+      this.valueChanged.emit(val);
+    });
   }
 
   submitForm() {
@@ -60,7 +68,7 @@ export class GuestPrecheckComponent implements OnInit {
   private initGuestForm(): FormGroup {
 
     return this.fb.group({
-      dlNumber:  ['', [Validators.required, Validators.minLength(2)]],
+      dlNumber:  ['', [Validators.required, Validators.minLength(17), Validators.maxLength(17)]],
       triulliumNumber: ['', [Validators.required, Validators.minLength(2)]],
       postalCode: ['', [Validators.required]],
       dob: ['', [Validators.required]]

@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
       delete checkEligibilityParams['token'];
     }
 
-    this.router.navigate(['/license-aligibility', checkEligibilityParams ]);
+    this.router.navigate(['/license-eligibility', checkEligibilityParams ]);
   }
 
 }

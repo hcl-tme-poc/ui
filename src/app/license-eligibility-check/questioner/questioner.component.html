@@ -42,6 +42,12 @@
 
       </mat-card-content>
 
+      <mat-card-actions>
+
+          <button type="submit" mat-raised-button [disabled]="!questionerForm.valid">SUBMIT</button>
+  
+      </mat-card-actions>
+
   </form>
 
   <!-- {{ questionerForm.value | json }} -->
