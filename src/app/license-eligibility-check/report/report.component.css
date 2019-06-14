@@ -18,3 +18,13 @@ mat-card {
 h4 {
     font-size: 18px;
 }
+
+h5 {
+    font-size: 16px;
+    margin: 5px 0 5px 0;
+}
+
+.reason-description {
+    font-size: 16px;
+    margin: 5px 0 5px 0;
+}

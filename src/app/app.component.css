@@ -27,3 +27,7 @@ img#logo {
 .userName {
     font-size: 12px;
 }
+
+mat-toolbar {
+    background-color: #0B6B41;
+}

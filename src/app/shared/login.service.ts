@@ -40,15 +40,15 @@ export class LoginService {
 
   login(loginInfo: LoginModel): Observable<any> {
 
-    if(loginInfo.loginId === loginInfo.password) {
+    if(loginInfo.loginId === loginInfo.password || loginInfo.loginId === 'user1' || loginInfo.loginId === 'user2') {
 
-      const user = loginInfo.loginId === 'aaa' ? this.allUsers[0] : this.allUsers[1];
+      const user = (loginInfo.loginId === 'aaa' || loginInfo.loginId === 'user1') ? this.allUsers[0] : this.allUsers[1];
 
       this.currentUser = user;
       this._currentUser$.next(user);
 
       return of(user).pipe(
-        delay(1000)
+        delay(500)
       );
     }else {
 
