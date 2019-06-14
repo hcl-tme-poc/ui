@@ -24,5 +24,18 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "License renewal",
+      "urls": [
+        "http://dmr-poc.eastus.cloudapp.azure.com:12001/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "1d",
+        "strategy": "performance"
+      }
+    }
   ]
 }
