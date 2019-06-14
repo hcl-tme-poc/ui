@@ -5,6 +5,7 @@ import { UserModel } from './shared/models/user.model';
 import { noUndefined } from '@angular/compiler/src/util';
 import { LoginService } from './shared/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { OnlineService } from './shared/online.service';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
   // title = 'dmr-poc';
 
   constructor(public dialog: MatDialog, public loginService: LoginService, 
+        private onlineService: OnlineService,
         private route: ActivatedRoute, private router: Router,) {}
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class AppComponent implements OnInit {
         localStorage.setItem('userToken', JSON.stringify(response));
         // this.loginService.currentUser = response;
         this.loginService.setCurrentUser(response);
+        this.router.navigate(['/']);
       } else {
         localStorage.removeItem('userToken');
       }

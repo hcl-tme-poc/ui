@@ -23,18 +23,15 @@ export class LoginDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('form submitted', this.loginForm.value);
 
     this.loginService.login(this.loginForm.value)
       .subscribe(
         (val) => {
           this.loginErrorMessage = '';
-          console.log('token', val);
           this.dialogRef.close(val);
         },
         (err) => {
           this.loginErrorMessage = err;
-          console.log('error', err);
         }
       );
   }

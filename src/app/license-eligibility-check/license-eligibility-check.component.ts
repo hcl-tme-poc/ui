@@ -27,8 +27,6 @@ export class LicenseEligibilityCheckComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(' ****************** in onInit');
-
     this.route.paramMap.pipe(
       tap(val => {
         // console.log(' ********** route.paramMap',  val['params'].pricheck);
@@ -39,8 +37,6 @@ export class LicenseEligibilityCheckComponent implements OnInit {
     });
 
     this.loginService.currentUser$.subscribe(user => {
-
-      console.log(' *** currentUser$ changed');
 
       this.currentUser = user;
 
@@ -58,8 +54,6 @@ export class LicenseEligibilityCheckComponent implements OnInit {
   }
 
   doPreCheck(event) {
-
-    console.log('in doPreCheck', event);
 
     this.preEligible = false;
     this.precheckMessage = undefined;
@@ -82,15 +76,13 @@ export class LicenseEligibilityCheckComponent implements OnInit {
 
   questionsSubmitted(event) {
 
-    console.log('questioner submitted', event);
-
     this.eligibilityCheckService.checkEligibilityQuestioner(this.componentState['driverLicenseNumber'],
           'temp@mail.com', this.toTrueFalse(event.musclePain), this.toTrueFalse(event.poorDriving), 
           this.toTrueFalse(event.cardiacProblem),
           this.toTrueFalse(event.respiratoryProblem), this.toTrueFalse(event.eye), 
           this.toTrueFalse(event.hospitalized) )
     .subscribe((val) => {
-      console.log(' ********* eligibility:', val);
+      // console.log(' ********* eligibility:', val);
 
       this.router.navigate(['/license-eligibility-report', {
         dl: this.componentState['driverLicenseNumber'],

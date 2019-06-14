@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutAlign="top center">
 
-  <mat-toolbar role="heading" color="primary" fxLayout="row">
+  <mat-toolbar role="heading" color="primary" fxLayout="row" [class.offline]="! onlineService.online">
 
     <img id="logo" src="assets/OMT-Logo_White.png" fxShow fxHide.lt-md="true" alt="Ontario Ministry of Transportation">
 

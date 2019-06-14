@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { OnlineService } from 'src/app/shared/online.service';
 
 @Component({
   selector: 'app-guest-precheck',
@@ -28,12 +29,9 @@ export class GuestPrecheckComponent implements OnInit {
   @Output()
   valueChanged = new EventEmitter();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private onlineService: OnlineService) { }
 
   ngOnInit() {
-
-    console.log(' **** onInit. driverLicenseNumber', this.driverLicenseNumber, 
-        ' trilliumNumber', this.trilliumNumber, ' dateOfBirth', this.dateOfBirth);
 
     this.guestForm = this.initGuestForm();
 
@@ -57,8 +55,6 @@ export class GuestPrecheckComponent implements OnInit {
   }
 
   submitForm() {
-
-    console.log(' *** form submitted', this.guestForm.value);
 
     this.doPreCheck.emit(this.guestForm.value);
 
