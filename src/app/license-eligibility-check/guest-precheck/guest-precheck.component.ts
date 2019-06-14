@@ -29,7 +29,7 @@ export class GuestPrecheckComponent implements OnInit {
   @Output()
   valueChanged = new EventEmitter();
 
-  constructor(private fb: FormBuilder, private onlineService: OnlineService) { }
+  constructor(private fb: FormBuilder, public onlineService: OnlineService) { }
 
   ngOnInit() {
 

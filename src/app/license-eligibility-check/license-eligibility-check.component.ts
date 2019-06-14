@@ -22,7 +22,7 @@ export class LicenseEligibilityCheckComponent implements OnInit {
   precheckMessage: ElegibilityCheckResponse | undefined;
 
 
-  constructor(public loginService: LoginService, private eligibilityCheckService: EligibilityCheckService,
+  constructor(public loginService: LoginService, public eligibilityCheckService: EligibilityCheckService,
           private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
