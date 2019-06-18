@@ -6,6 +6,7 @@ import { noUndefined } from '@angular/compiler/src/util';
 import { LoginService } from './shared/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OnlineService } from './shared/online.service';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-root',
@@ -43,9 +44,11 @@ export class AppComponent implements OnInit {
         this.loginService.setCurrentUser(response);
         this.router.navigate(['/']);
       } else {
-        localStorage.removeItem('userToken');
-      }
 
+        // localStorage.removeItem('userToken');
+
+        this.doLogout();
+      }
 
     });
 

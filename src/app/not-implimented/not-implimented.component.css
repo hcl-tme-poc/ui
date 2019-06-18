@@ -13,3 +13,8 @@ mat-card-content {
 mat-card-content > div {
     font-size: 18px;
 }
+
+.version {
+    padding-top: 60px;
+    font-size: 12px !important;
+}
