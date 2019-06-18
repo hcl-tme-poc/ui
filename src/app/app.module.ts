@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { TextMaskModule } from 'angular2-text-mask';
+
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
@@ -51,6 +53,7 @@ const appRoutes: Routes = [
     SharedModule,
     ReactiveFormsModule,
     HttpClientModule,
+    TextMaskModule,
     RouterModule.forRoot(appRoutes, { enableTracing: false, useHash: true }),
   ],
   entryComponents: [

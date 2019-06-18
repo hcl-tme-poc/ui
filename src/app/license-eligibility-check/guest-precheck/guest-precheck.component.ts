@@ -9,6 +9,9 @@ import { OnlineService } from 'src/app/shared/online.service';
 })
 export class GuestPrecheckComponent implements OnInit {
 
+  dlMask = [/\D/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/];
+  // dlMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
   guestForm: FormGroup;
 
   @Input()

@@ -5,9 +5,10 @@
     <mat-card-content fxLayout="column">
 
       <mat-form-field>
-        <input matInput placeholder="Driver License Number" formControlName="dlNumber" autofocus>
+        <input matInput [textMask]="{mask: dlMask}" placeholder="Driver License Number" formControlName="dlNumber" autofocus>
+        <!-- [textMask]="{mask: dlMask}"  -->
         <mat-error *ngIf="dlNumber.hasError('required')">DL Number is required</mat-error>
-        <mat-error *ngIf="dlNumber.hasError('minlength')">Must be {{dlNumber['errors'].minlength.requiredLength}}</mat-error>
+        <mat-error *ngIf="dlNumber.hasError('minlength')">Must be {{dlNumber['errors'].minlength.requiredLength}} characters</mat-error>
       </mat-form-field>
 
       <mat-form-field>
