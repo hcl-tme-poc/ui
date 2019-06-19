@@ -4,9 +4,12 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { UserModel } from './shared/models/user.model';
 import { noUndefined } from '@angular/compiler/src/util';
 import { LoginService } from './shared/login.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { OnlineService } from './shared/online.service';
 import { debug } from 'util';
+import { TouchSequence } from 'selenium-webdriver';
+import { map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -17,9 +20,13 @@ export class AppComponent implements OnInit {
   
   // title = 'dmr-poc';
 
+  fragment: string;
+
   constructor(public dialog: MatDialog, public loginService: LoginService, 
         public onlineService: OnlineService,
-        private route: ActivatedRoute, private router: Router,) {}
+        private route: ActivatedRoute, private router: Router,) {
+
+  }
 
   ngOnInit(): void {
 

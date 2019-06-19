@@ -7,8 +7,6 @@
     <div class="header-title" fxShow fxHide.lt-md>Ontario Ministry of Transportation</div>
 
     <div class="header-title" fxHide fxShow.lt-md>Ministry of Transportation</div>
-    
-    <!-- <div class="header-subtitle" fxHide.lt-sm>Self Service Portal</div> -->
 
 
     <div fxFlex></div>
@@ -19,7 +17,7 @@
 
       <button mat-button routerLink="/registration" routerLinkActive="active">Vehicle Registration</button>
       
-      <button mat-button (click)="goToDl()" routerLinkActive="active">Renew License</button>
+      <button mat-button (click)="goToDl()" [class.active]="router.url.startsWith('/license-eligibility')">Renew License</button>
 
       <button mat-button *ngIf="! loginService.currentUser" (click)="doLogin()">Login</button>
 
@@ -43,7 +41,7 @@
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button mat-menu-item routerLink="/license-eligibility" routerLinkActive="active">
+      <button mat-menu-item (click)="goToDl()" [class.active]="router.url.startsWith('/license-eligibility')">
         <mat-icon>directions_car</mat-icon>
         <span>Renew License</span>
       </button>
