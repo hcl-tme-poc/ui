@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  SERVER_URL: 'http://dmr-poc.eastus.cloudapp.azure.com:12001/ELIGIBILITY-CHECK/V1.0/'
+  SERVER_URL: 'https://api-mot.azure-api.net/ELIGIBILITY-CHECK/V1.0/'
 };
 
 // SERVER_URL: 'https://api-mot.azure-api.net/ELIGIBILITY-CHECK/V1.0/'

@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public loginService: LoginService, 
         public onlineService: OnlineService,
-        private route: ActivatedRoute, private router: Router,) {
+        private route: ActivatedRoute, public router: Router,) {
 
   }
 
