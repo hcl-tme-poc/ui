@@ -1,16 +1,21 @@
 <mat-card>
 
   <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title>
+      <div class="Ministry-of-Transpor">Ministry of Transportation</div>
+      <div fxShow fxHide.lt-md class="Welcome-to-the-Self">Welcome to the Self Service Portal</div>
+    </mat-card-title>
   </mat-card-header>
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
     <mat-card-content fxLayout="column">
 
+      <div class="Login-to-your-accoun">Login to your account</div>
+
       <mat-form-field>
 
-        <input matInput placeholder="Login Id" formControlName="loginId">
+        <input matInput placeholder="Username" formControlName="loginId">
         <mat-hint>Must be at least 2 characters long</mat-hint>
 
         <mat-error *ngIf="loginIdControl.hasError('required')">
@@ -47,9 +52,20 @@
 
     <mat-card-actions>
 
-      <button type="submit" mat-raised-button [disabled]="!loginForm.valid">LOG IN</button>
+      <div>
 
-      <button mat-raised-button (click)="dialogRef.close()">CLOSE</button>
+        <button type="submit" color="accent" mat-raised-button [disabled]="!loginForm.valid">LOG IN</button>
+
+        <button mat-raised-button (click)="dialogRef.close()">CLOSE</button>
+
+      </div>
+
+      <div class="remember-me">
+
+        <mat-checkbox>Remember Me</mat-checkbox>
+
+      </div>
+      
 
     </mat-card-actions>
 

@@ -15,6 +15,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -34,6 +35,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatListModule,
     MatDividerModule,
     MatChipsModule,
+    MatCheckboxModule,
   ],
   exports: [
     MatToolbarModule,
@@ -50,6 +52,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatListModule,
     MatDividerModule,
     MatChipsModule,
+    MatCheckboxModule,
   ],
 })
 export class SharedModule { }
