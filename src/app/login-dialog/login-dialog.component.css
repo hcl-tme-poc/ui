@@ -41,4 +41,6 @@ mat-card {
     line-height: normal;
     letter-spacing: normal;
     color: #616161;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
