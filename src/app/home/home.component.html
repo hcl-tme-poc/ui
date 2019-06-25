@@ -1,4 +1,102 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end space-around" fxLayoutGap="10px" style="min-height: calc(100vh - 100px);">
+
+<div ngClass.gt-sm="page-content" ngClass.lt-md="page-content-mob" fxLayout="column" fxLayoutAlign="start start">
+
+  <div fxShow fxHide.lt-md>image</div>
+
+  <div class="content-header">
+    <span fxShow fxHide.lt-md>Welcome to the </span>Ministry of Transportation
+  </div>
+
+  <div ngClass.gt-sm="content-sub-header" ngClass.lt-md="content-sub-header-mob">
+      Self Service Portal
+  </div>
+
+  <div class="content-sub-header-2" fxShow fxHide.lt-md>
+      Skip the service centre and complete many activities online.
+  </div>
+
+  <ng-container *ngIf="loginService.currentUser">
+
+    <mat-divider></mat-divider>
+
+    <div class="notifications">NOTIFICATIONS</div>
+
+    <div class="time-to-renew">It’s time to renew your licence</div>
+
+    <div class="license-renew-date">Your Drivers Licence will expire on 24 Jly 2019.</div>
+
+    <mat-divider></mat-divider>
+
+  </ng-container>
+
+  <div class="get-started">Get Started</div>
+
+  <div id="allOptionLinks" fxLayout="row wrap" fxLayoutGap="20px;" fxLayoutAlign="start start" fxFlexFill>
+
+    <div routerLink="/registration" class="option-link" fxFlex="0 0 400px;" 
+        fxLayout="row" fxLayoutAlign="start center" fxFlexOffset="20px;">
+      <button mat-fab>
+        <mat-icon>credit_card</mat-icon>
+      </button>
+
+      <a fxFlexOffset="20px;">Renew your Driver’s Licence</a>
+    </div>
+
+    <div routerLink="/not-implemented" class="option-link" fxFlex="0 0 400px;" 
+        fxLayout="row" fxLayoutAlign="start center" fxFlexOffset="20px;">
+      <button mat-fab></button>
+
+      <a fxFlexOffset="20px;">Renew licence plate sticker</a>
+    </div>
+
+    <div routerLink="/not-implemented" class="option-link" fxFlex="0 0 400px;" 
+        fxLayout="row" fxLayoutAlign="start center" fxFlexOffset="20px;">
+      <button mat-fab></button>
+
+      <a fxFlexOffset="20px;">Order a used vehicle information package</a>
+    </div>
+
+    <div routerLink="/not-implemented" class="option-link" fxFlex="0 0 400px;" 
+        fxLayout="row" fxLayoutAlign="start center" fxFlexOffset="20px;">
+      <button mat-fab></button>
+
+      <a fxFlexOffset="20px;">Pay fines, fees, and penalties</a>
+    </div>
+
+    <div routerLink="/not-implemented" class="option-link" fxFlex="0 0 400px;" 
+        fxLayout="row" fxLayoutAlign="start center" fxFlexOffset="20px;">
+      <button mat-fab></button>
+
+      <a fxFlexOffset="20px;">Order a driver abstract</a>
+    </div>
+
+    <div routerLink="/not-implemented" class="option-link" fxFlex="0 0 400px;" 
+        fxLayout="row" fxLayoutAlign="start center" fxFlexOffset="20px;">
+      <button mat-fab></button>
+
+      <a fxFlexOffset="20px;">Order a vehicle abstract</a>
+    </div>
+
+    <div routerLink="/not-implemented" class="option-link" fxFlex="0 0 400px;" 
+        fxLayout="row" fxLayoutAlign="start center" fxFlexOffset="20px;">
+      <button mat-fab></button>
+
+      <a fxFlexOffset="20px;">Order personalised licence plate</a>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end space-around" fxLayoutGap="10px" style="min-height: calc(100vh - 100px);">
 
   <mat-card id="renewalCriteriaCard" fxFlex>
 
@@ -51,4 +149,4 @@
   </mat-card>
 
 
-</div>
+</div> -->

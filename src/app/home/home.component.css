@@ -1,3 +1,16 @@
+:host {
+    width: 100%;
+}
+
+.page-content {
+    padding-left: 40px;
+}
+
+.page-content-mob {
+    padding-left: 5px;
+}
+
+
 mat-card {
     max-width: 400px;
 }
@@ -9,3 +22,96 @@ mat-card-content {
 mat-card-title {
     font-size: 22px;
 }
+
+.content-header {
+    font-family: OpenSans;
+    font-size: 24px;
+    font-weight: 600;
+    color: #616161;
+    padding-top: 56px;
+}
+
+.content-sub-header {
+    font-family: OpenSans;
+    font-size: 48px;
+    font-weight: bold;
+    color: #616161;
+}
+.content-sub-header-mob {
+    font-family: OpenSans;
+    font-size: 28px;
+    font-weight: bold;
+    color: #616161;
+}
+
+.content-sub-header-2 {
+    font-family: OpenSans;
+    font-size: 34px;
+    font-weight: 600;
+    color: #616161;
+    padding-top: 28px;
+}
+
+.notifications {
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 600;
+    color: #01579b;
+    padding-top: 20px;
+}
+
+mat-divider {
+      width: 80%;
+      margin-top: 20px;
+}
+mat-divider:first-of-type {
+    margin-top: 40px;
+}
+
+.time-to-renew {
+    font-family: OpenSans;
+    font-size: 24px;
+    font-weight: bold;
+    color: #01579b;
+    padding-top: 15px;
+  }
+
+  .license-renew-date {
+    font-family: OpenSans;
+    font-size: 20px;
+    color:  #01579b;
+  }
+
+  .get-started {
+    font-family: OpenSans;
+    font-size: 34px;
+    font-weight: bold;
+    color: #7e7e7e;
+    padding-top: 60px;
+    padding-bottom: 30px;
+  }
+
+  .option-link {
+      color: #01579b;
+
+      /* border: 1px solid black; */
+  }
+
+  div#allOptionLinks div a {
+    padding-left: 20px;
+    color: #01579b;
+    font-family: OpenSans;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #allOptionLinks>div {
+      /* margin: 10px 10px 10px 10px; */
+      margin: 20px;
+  }
+
+  .shadow {
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+  }
