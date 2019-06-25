@@ -2,7 +2,7 @@
 
   <div class="subheader" fxShow fxHide.lt-md fxLayout="row" fxLayoutAlign="start center">
 
-    <img id="logo" src="assets/OMT-Logo_White.png" fxFlexOffset="20px" alt="Ontario Ministry of Transportation">
+    <img id="header-logo" src="assets/OMT-Logo_White.png" fxFlexOffset="20px" alt="Ontario Ministry of Transportation">
 
     <div fxFlex></div>
 
@@ -80,5 +80,23 @@
   </mat-toolbar>
 
   <router-outlet></router-outlet>
+
+  <!-- id="footer" class="footer" -->
+  <div class="footer"  fxFlexFill fxLayout="row" fxLayoutAlign="start center">
+
+    <img id="footer-logo" src="assets/OMT-Logo_White.png" fxFlexOffset="20px">
+
+    <div fxFlex></div>
+
+    <a mat-menu-item class="footer-menu-item" fxShow fxHide.lt-md routerLink="/about-ontario">About Ontario</a>
+
+    <a mat-menu-item class="footer-menu-item" routerLink="/accessibility">Accessibility</a>
+
+    <a mat-menu-item class="footer-menu-item" fxShow fxHide.lt-md routerLink="/news">News</a>
+
+    <a mat-menu-item class="footer-menu-item" routerLink="/privacy">Privacy</a>
+
+    <a mat-menu-item class="footer-menu-item" routerLink="/terms-of-use">Terms of Use</a>
+  </div>
 
 </div>
