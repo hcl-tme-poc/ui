@@ -1,11 +1,22 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('AppComponent', () => {
+import { RouterTestingModule } from '@angular/router/testing';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+
+fdescribe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        SharedModule,
+        RouterTestingModule,
+        NoopAnimationsModule,
+      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        LoginDialogComponent
       ],
     }).compileComponents();
   }));

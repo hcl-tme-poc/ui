@@ -1,3 +1,7 @@
+:host {
+    min-height: calc(100vh - 300px);
+}
+
 h4 {
     font-size: 18px;
 }
