@@ -1,7 +1,9 @@
 
 <mat-card>
 
-    <mat-card-title><h4>License Renewal Eligibility Check</h4></mat-card-title>
+    <mat-card-title>
+      <div ngClass.gt-sm="card-title" ngClass.lt-md="card-title-mob">License Renewal Eligibility Check</div>
+    </mat-card-title>
 
     <mat-card-content>
 
@@ -15,7 +17,7 @@
 
 
       <ng-container id="precheckMessage" *ngIf="precheckMessage">
-        <h4>{{precheckMessage.message}}</h4>
+        <div ngClass.gt-sm="precheck-message" ngClass.lt-md="precheck-message-mob">{{precheckMessage.message}}</div>
         <mat-list>
 
           <!-- <h3 mat-subheader>{{precheckMessage.message}}</h3> -->

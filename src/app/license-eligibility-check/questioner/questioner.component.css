@@ -8,9 +8,21 @@
     color: #0288d1;
 }
 
-label.question-label {
+/* label.question-label {
     font-weight: bold;
     font-size: 15px;
+} */
+label.question-label {
+    font-family: OpenSans;
+    font-size: 20px;
+    font-weight: 600;
+    color: #616161;
+}
+label.question-label-mob {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 600;
+    color: #616161;
 }
 
 mat-radio-group {
