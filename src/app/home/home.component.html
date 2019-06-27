@@ -17,7 +17,7 @@
       Skip the service centre and complete many activities online.
   </div>
 
-  <ng-container *ngIf="loginService.currentUser">
+  <ng-container *ngIf="loginService?.currentUser?.firstName == 'Alex'">
 
     <mat-divider></mat-divider>
 

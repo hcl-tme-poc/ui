@@ -29,7 +29,7 @@
     {
       "name": "License renewal",
       "urls": [
-        "http://dmr-poc.eastus.cloudapp.azure.com:12001/**"
+        "https://api-mot.azure-api.net/**"
       ],
       "cacheConfig": {
         "maxSize": 100,
