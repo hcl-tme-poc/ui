@@ -22,8 +22,10 @@
           Login Id is required
         </mat-error>
         <mat-error *ngIf="loginIdControl.hasError('minlength')">
-          Must be at least {{loginIdControl.errors.minlength.requiredLength}}. 
-          Entered {{loginIdControl.errors.minlength.actualLength}}
+            Must be at least {{loginIdControl.errors['minlength'].requiredLength}}.
+            Entered {{loginIdControl.errors['minlength'].actualLength}}
+          <!-- Must be at least {{loginIdControl.errors.minlength.requiredLength}}.  -->
+          <!-- Entered {{loginIdControl.errors.minlength.actualLength}} -->
         </mat-error>
 
       </mat-form-field>
@@ -38,8 +40,8 @@
           Please enter password
         </mat-error>
         <mat-error *ngIf="passwordControl.hasError('minlength')">
-          Must be at least {{passwordControl.errors.minlength.requiredLength}}. 
-          Entered {{passwordControl.errors.minlength.actualLength}}
+          Must be at least {{passwordControl.errors['minlength'].requiredLength}}. 
+          Entered {{passwordControl.errors['minlength'].actualLength}}
         </mat-error>
 
       </mat-form-field>
@@ -50,13 +52,13 @@
 
     </mat-card-content>
 
-    <mat-card-actions>
+    <mat-card-actions ngStyle.gt-sm="text-align: right;">
 
       <div>
 
-        <button type="submit" color="accent" mat-raised-button [disabled]="!loginForm.valid">LOG IN</button>
-
         <button mat-raised-button (click)="dialogRef.close()">CLOSE</button>
+
+        <button type="submit" color="accent" mat-raised-button [disabled]="!loginForm.valid">LOG IN</button>
 
       </div>
 

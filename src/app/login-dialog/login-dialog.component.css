@@ -2,6 +2,10 @@ mat-card {
     min-width: 400px;
 }
 
+/* mat-card-actions {
+    text-align: right;
+} */
+
 .error {
     color: red;
 }

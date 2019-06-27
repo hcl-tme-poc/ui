@@ -2,33 +2,30 @@
 
   <div class="subheader" fxShow fxHide.lt-md fxLayout="row" fxLayoutAlign="start center">
 
-    <img id="header-logo" src="assets/OMT-Logo_White.png" fxFlexOffset="20px" alt="Ontario Ministry of Transportation">
+    <img id="header-logo" src="assets/OMT-Logo_White.png" fxFlexOffset="128px" alt="Ontario Ministry of Transportation">
 
     <div fxFlex></div>
+
+    <div class="franch">français</div>
 
     <div *ngIf="loginService.currentUser" class="loggedin-user" fxLayout="row" fxLayoutAlign="center center">
       <mat-icon>account_circle</mat-icon>
       <div>{{loginService.currentUser.firstName}}</div>
     </div>
 
-    <button i18n mat-button *ngIf="! loginService.currentUser" class="loggedin-user" (click)="doLogin()">Login</button>
-    <button i18n mat-button *ngIf="loginService.currentUser" class="loggedin-user" (click)="doLogout()">Logout</button>
+    <button i18n mat-button *ngIf="! loginService.currentUser" class="loggedin-user" (click)="doLogin()" style="padding-right: calc(128px - 16px);">Login</button>
+    <button i18n mat-button *ngIf="loginService.currentUser" class="loggedin-user" (click)="doLogout()" style="padding-right: calc(128px - 16px);">Logout</button>
 
   </div>
 
 
   <mat-toolbar role="heading" color="primary" fxLayout="row" [class.offline]="! onlineService.online">
 
-    <!-- <img id="logo" src="assets/OMT-Logo_White.png" fxShow fxHide.lt-md="true" alt="Ontario Ministry of Transportation"> -->
-
-    <!-- <div class="header-title" fxShow fxHide.lt-md>Ontario Ministry of Transportation</div> -->
-
     <div class="header-title" fxHide fxShow.lt-md>Ministry of Transportation</div>
 
+    <div fxFlex fxHide fxShow.lt-md></div>
 
-    <div fxFlex></div>
-
-    <div fxShow fxHide.lt-md>
+    <div fxShow fxHide.lt-md style="padding-left: calc(128px - 16px);">
 
       <button i18n class="menu-item" mat-button routerLink="/home" routerLinkActive="active">HOME</button>
 
@@ -36,14 +33,13 @@
       
       <button i18n class="menu-item" mat-button (click)="goToDl()" [class.active]="router.url.startsWith('/license-eligibility')">RENEW LICENSE</button>
 
-      <!-- <button i18n mat-button *ngIf="! loginService.currentUser" (click)="doLogin()">Login</button>
-
-      <button i18n mat-button *ngIf="loginService.currentUser" (click)="doLogout()">Logout</button> -->
+      <button i18n class="menu-item" mat-button routerLink="/not-implemented" routerLinkActive="active">RCTC</button>
 
     </div>
 
 
-    <div *ngIf="loginService.currentUser" class="userName" fxLayout="row" fxLayoutAlign="center center">
+    <div *ngIf="loginService.currentUser" class="userName" fxLayout="row" 
+    fxLayoutAlign="center center" fxHide fxShow.lt-md>
       <mat-icon>account_circle</mat-icon>
       <div>{{loginService.currentUser.firstName}}</div>
     </div>
