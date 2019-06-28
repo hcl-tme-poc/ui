@@ -33,3 +33,9 @@ mat-radio-group {
 mat-radio-button {
     padding: 3px 0 3px 0;
 }
+
+.help-icon {
+    font-size: 30px;
+    color: #0288d1;
+    padding-left: 10px;
+}

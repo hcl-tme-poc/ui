@@ -100,7 +100,7 @@ mat-divider:first-of-type {
     font-weight: bold;
     color: #616161;
     padding-top: 60px;
-    padding-bottom: 30px;
+    padding-bottom: 16px;
 }
 .get-started-mob {
     font-family: OpenSans;
@@ -108,7 +108,7 @@ mat-divider:first-of-type {
     font-weight: bold;
     color: #616161;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 16px;
 }
 
 .option-link {
@@ -160,6 +160,7 @@ button[mat-fab] mat-icon {
 .how-it-works {
     /* padding-left: 128px;
     padding-right: 128px; */
+    margin-top: 30px;
     padding-top: 20px;
     width: 100%;
     /* height: 722px; */
