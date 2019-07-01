@@ -31,7 +31,7 @@
 
       <button i18n class="menu-item" mat-button routerLink="/registration" routerLinkActive="active">VEHICLE REGISTRATION</button>
       
-      <button i18n class="menu-item" mat-button (click)="goToDl()" [class.active]="router.url.startsWith('/license-eligibility')">RENEW LICENSE</button>
+      <button i18n class="menu-item" mat-button (click)="goToDl()" [class.active]="router.url.startsWith('/license-eligibility')">RENEW LICENCE</button>
 
       <button i18n class="menu-item" mat-button routerLink="/not-implemented" routerLinkActive="active">RCTC</button>
 
@@ -58,7 +58,7 @@
       </button>
       <button mat-menu-item (click)="goToDl()" [class.active]="router.url.startsWith('/license-eligibility')">
         <mat-icon>directions_car</mat-icon>
-        <span>Renew License</span>
+        <span>Renew Licence</span>
       </button>
       <button mat-menu-item routerLink="/registration" routerLinkActive="active">
         <mat-icon>bar_chart</mat-icon>

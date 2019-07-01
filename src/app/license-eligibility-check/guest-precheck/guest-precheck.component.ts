@@ -67,7 +67,7 @@ export class GuestPrecheckComponent implements OnInit {
 
     return this.fb.group({
       dlNumber:  ['', [Validators.required, Validators.minLength(17), Validators.maxLength(17)]],
-      triulliumNumber: ['', [Validators.required, Validators.minLength(2)]],
+      triulliumNumber: ['', [Validators.required, Validators.minLength(7), Validators.minLength(7)]],
       postalCode: ['', [Validators.required]],
       dob: ['', [Validators.required]]
     });
