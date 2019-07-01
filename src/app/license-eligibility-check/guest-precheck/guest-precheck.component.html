@@ -17,7 +17,8 @@
       <mat-form-field>
         <input matInput placeholder="Triullium Number" formControlName="triulliumNumber">
         <mat-error *ngIf="triulliumNumber.hasError('required')">Trillium Number is required</mat-error>
-        <mat-error *ngIf="triulliumNumber.hasError('minlength')">Must be {{triulliumNumber['errors'].minlength.requiredLength}}</mat-error>
+        <mat-error *ngIf="triulliumNumber.hasError('minlength')">Must be {{triulliumNumber['errors'].minlength.requiredLength}} characters long</mat-error>
+        <mat-error *ngIf="triulliumNumber.hasError('mmaxlength')">Must be {{triulliumNumber['errors'].maxlength.requiredLength}} characters long</mat-error>
       </mat-form-field>
 
       <mat-form-field>

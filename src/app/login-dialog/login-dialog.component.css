@@ -48,3 +48,12 @@ mat-card {
     padding-top: 30px;
     padding-bottom: 30px;
   }
+
+  input {
+      font-size: 16px;
+  }
+
+  button {
+      width: 120;
+      font-size: 20px;
+  }
