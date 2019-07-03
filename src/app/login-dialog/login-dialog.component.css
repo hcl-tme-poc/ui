@@ -54,6 +54,7 @@ mat-card {
   }
 
   button {
-      width: 120;
-      font-size: 20px;
+      padding: 0 5px 0 5px;
+      /* width: 120;
+      font-size: 20px; */
   }
